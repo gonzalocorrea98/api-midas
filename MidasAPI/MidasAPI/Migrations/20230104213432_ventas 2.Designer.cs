@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MidasAPI.Models.Data;
 
@@ -11,9 +12,11 @@ using MidasAPI.Models.Data;
 namespace MidasAPI.Migrations
 {
     [DbContext(typeof(AlmacenContext))]
-    partial class AlmacenContextModelSnapshot : ModelSnapshot
+    [Migration("20230104213432_ventas 2")]
+    partial class ventas2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

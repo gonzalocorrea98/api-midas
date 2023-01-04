@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MidasAPI.Models.Data;
 using MidasAPI.Models.Repository;
-using MidasAPI.Models.Repository;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +20,14 @@ builder.Services.AddDbContext<AlmacenContext>(
 
 builder.Services.AddTransient<IProductoRepository, ProductoRepository>();
 builder.Services.AddTransient<ITipoProductoRepository, TipoProductoRepository>();
+//builder.Services.AddTransient<IVentasRepository, Ventas>();
 
+
+builder.Services.AddControllers().AddJsonOptions(
+    options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 
 var app = builder.Build();
 

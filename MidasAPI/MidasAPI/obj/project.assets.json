@@ -3729,11 +3729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\Desktop\\MIDAS 2\\MidasAPI\\MidasAPI\\MidasAPI.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Midas\\MidasAPI\\MidasAPI\\MidasAPI.csproj",
       "projectName": "MidasAPI",
-      "projectPath": "C:\\Users\\usuario\\Desktop\\MIDAS 2\\MidasAPI\\MidasAPI\\MidasAPI.csproj",
+      "projectPath": "C:\\Users\\usuario\\Desktop\\Midas\\MidasAPI\\MidasAPI\\MidasAPI.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\Desktop\\MIDAS 2\\MidasAPI\\MidasAPI\\obj\\",
+      "outputPath": "C:\\Users\\usuario\\Desktop\\Midas\\MidasAPI\\MidasAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

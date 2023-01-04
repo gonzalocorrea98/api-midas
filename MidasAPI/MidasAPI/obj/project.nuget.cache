@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ckd5t9DfNTmM0M/YoBquHoN9OtyyVptUGfl8dqn7CADophbxgoJ5LBbrMhU/Qg2Bm84+2HnMoZX3U9Gjy6su5A==",
+  "dgSpecHash": "EOu7APmA255puyZ+M3IuqE9SeqY59WF2rYep4yEJv6b5cxacm6MGwbSbBBrbWp3Bpjlfeh1scFH2txW3WrkU6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\usuario\\Desktop\\MIDAS 2\\MidasAPI\\MidasAPI\\MidasAPI.csproj",
+  "projectFilePath": "C:\\Users\\usuario\\Desktop\\Midas\\MidasAPI\\MidasAPI\\MidasAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\usuario\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\usuario\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
