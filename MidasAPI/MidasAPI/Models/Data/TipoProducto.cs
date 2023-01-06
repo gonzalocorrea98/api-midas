@@ -9,5 +9,11 @@ namespace MidasAPI.Models.Data
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Descripcion { get; set; }
+
+        public TipoProducto()
+        {
+            Id = 0;
+            Descripcion = "Sin Descripcion";
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace MidasAPI.Models.Data
         public int Id { get; set; }
         public int ProductoId { get; set; }
         public int Cantidad { get; set; }
-        public double Importe { get; set; }
+        public double Precio { get; set; }
         
         public DateTime Fecha { get; set; }
 
@@ -18,12 +18,13 @@ namespace MidasAPI.Models.Data
         public virtual Producto oProducto { get; set; }
 
 
-        public Venta(int productoId, int cantidad, double importe)
+        public Venta(int productoId, int cantidad, double precio)
         {
             ProductoId = productoId;
             Cantidad = cantidad;
-            Importe = importe * cantidad;
+            Precio = precio;
             Fecha = DateTime.Now;
+            oProducto = new Producto();
         }
     }
 }

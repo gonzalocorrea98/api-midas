@@ -22,7 +22,7 @@ namespace MidasAPI.Models.Repository
                                    Producto = p.Nombre,
                                    TipoProducto = t.Descripcion,
                                    Cantidad = v.Cantidad,
-                                   Importe = v.Importe,
+                                   Importe = v.Precio,
                                    Fecha = v.Fecha
                                }).ToList();
 
@@ -33,7 +33,8 @@ namespace MidasAPI.Models.Repository
         public async Task<Venta> CreateVentaAsync(VentaDto data)
         {
             Producto producto = _context.Productos.Find(data.ProductoId);
-            Venta oVenta = new Venta(data.ProductoId, data.cantidad, producto.Precio);
+
+            Venta oVenta = new Venta(data.ProductoId, data.cantidad, data.ProductoId);
             _context.Ventas.Add(oVenta);
             await _context.SaveChangesAsync();
 

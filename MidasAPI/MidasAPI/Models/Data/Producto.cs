@@ -27,5 +27,14 @@ namespace MidasAPI.Models.Data
             Stock = stock;
             TipoProductoId = tipoProductoId;
         }
+
+        public Producto()
+        {
+            Id = 0;
+            Nombre = "Sin Nombre";
+            Precio = 0;
+            Stock = 0;
+            TipoProductoId = 0;
+        }
     }
 }
