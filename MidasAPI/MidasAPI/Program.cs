@@ -20,7 +20,7 @@ builder.Services.AddDbContext<AlmacenContext>(
 
 builder.Services.AddTransient<IProductoRepository, ProductoRepository>();
 builder.Services.AddTransient<ITipoProductoRepository, TipoProductoRepository>();
-//builder.Services.AddTransient<IVentasRepository, Ventas>();
+builder.Services.AddTransient<IVentasRepository, VentasRepository>();
 
 
 builder.Services.AddControllers().AddJsonOptions(

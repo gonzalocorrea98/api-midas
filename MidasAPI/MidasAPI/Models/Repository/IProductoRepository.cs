@@ -1,21 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MidasAPI.Models.Data;
-using MidasAPI.Models.Information;
+using MidasAPI.Models.DataTransfer;
 
 namespace MidasAPI.Models.Repository
 {
     public interface IProductoRepository
     {
 
-        IEnumerable<Producto> GetProductos();
+        IEnumerable<ProductoInformation> GetProductos();
 
-        Producto GetProductoById(int id);
+        ProductoInformation GetProductoById(int id);
 
-        Task<Producto> CreateProductoAsync(ProductoInf producto);
+        Task<Producto> CreateProductoAsync(ProductoDto data);
 
-        Task<bool> UpdateProductoAsync(Producto producto);
+        Producto UpdatePrecio(int id, double precio);
 
-        Task<bool> DeleteProductoAsync(Producto producto);
+        Producto UpdateStock(int id, int stock);
 
+        void DeleteProducto(int id);
+
+        //Task<Producto> UpdateProductoAsync(int id, ProductoDto data);
     }
 }

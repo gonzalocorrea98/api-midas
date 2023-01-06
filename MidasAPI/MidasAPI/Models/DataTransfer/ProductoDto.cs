@@ -1,6 +1,6 @@
-﻿namespace MidasAPI.Models.Information
+﻿namespace MidasAPI.Models.DataTransfer
 {
-    public class ProductoInf
+    public class ProductoDto
     {
         public string Nombre { get; set; }
         public double Precio { get; set; }
