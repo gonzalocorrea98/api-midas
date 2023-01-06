@@ -7,5 +7,11 @@
         public DateTime Fecha { get; set; }
         public List<DetalleInformation> Detalles { get; set; }
         public double ImporteTotal { get; set; }
+
+        public FacturaInformation()
+        {
+            Cliente = String.Empty;
+            Detalles = new List<DetalleInformation>();
+        }
     }
 }

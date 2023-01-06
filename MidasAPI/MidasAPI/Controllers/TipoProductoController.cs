@@ -55,7 +55,7 @@ namespace MidasAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -63,26 +63,40 @@ namespace MidasAPI.Controllers
         [HttpPost]
         [Route("Nuevo")]
         [ActionName(nameof(CreateTipoProductoAsync))]
-        public async Task<ActionResult<TipoProducto>> CreateTipoProductoAsync(TipoProducto tipoProducto)
+        public async Task<ActionResult<TipoProducto>> CreateTipoProductoAsync(string descripcion)
         {
-            await _tipoProductoRepository.CreateTipoProductoAsync(tipoProducto);
-            return CreatedAtAction(nameof(GetTipoProductoById), new { id = tipoProducto.Id }, tipoProducto);
+            TipoProducto oTipoProducto = new TipoProducto();
+            oTipoProducto.Descripcion = descripcion;
+            await _tipoProductoRepository.CreateTipoProductoAsync(oTipoProducto);
+            return CreatedAtAction(nameof(GetTipoProductoById), new { id = oTipoProducto.Id }, oTipoProducto);
         }
 
 
         [HttpPut("Editar/{id}")]
         [ActionName(nameof(UpdateTipoProducto))]
-        public async Task<ActionResult> UpdateTipoProducto(int id, TipoProducto tipoProducto)
+        public async Task<ActionResult> UpdateTipoProducto(int id, string descripcion)
         {
-            tipoProducto.Id = id;
-            if (id != tipoProducto.Id)
+            TipoProducto oTipoProducto = new TipoProducto();
+            oTipoProducto.Descripcion = descripcion;
+            oTipoProducto.Id = id;
+
+            var tipoProductoByID = _tipoProductoRepository.GetTipoProductoById(id);
+            if (tipoProductoByID == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
-            await _tipoProductoRepository.UpdateTipoProductoAsync(tipoProducto);
+            try
+            {
+                await _tipoProductoRepository.UpdateTipoProductoAsync(oTipoProducto);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
 
-            return NoContent();
+                return BadRequest(ex);
+            }
+            
         }
 
         [HttpDelete("Eliminar/{id}")]
@@ -96,7 +110,6 @@ namespace MidasAPI.Controllers
             }
 
             await _tipoProductoRepository.DeleteTipoProductoAsync(tipoProducto);
-
             return NoContent();
         }
     }

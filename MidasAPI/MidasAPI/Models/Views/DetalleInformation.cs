@@ -8,5 +8,11 @@
         public int Cantidad { get; set; }
         public double PrecioUnitario { get; set; }
         public double Importe { get; set; }
+
+        public DetalleInformation()
+        {
+            Producto = string.Empty;
+            TipoProducto= string.Empty;
+        }
     }
 }

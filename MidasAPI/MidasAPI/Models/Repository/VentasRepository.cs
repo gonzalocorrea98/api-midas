@@ -63,10 +63,7 @@ namespace MidasAPI.Models.Repository
             foreach (DetalleDto item in data.Detalles)
             {
                 var oProducto = _context.Productos.Find(item.ProductoId);
-                if(oProducto == null)
-                {
-                    
-                }
+                oProducto.Stock = oProducto.Stock - item.cantidad;
                 Detalle oDetalle = new Detalle(id, item.ProductoId, item.cantidad, oProducto.Precio);
                 _context.Detalles.Add(oDetalle);
                 _context.SaveChanges();
