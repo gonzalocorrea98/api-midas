@@ -2,6 +2,7 @@
 using MidasAPI.Models.Data;
 using MidasAPI.Models.DataTransfer;
 using MidasAPI.Models.Repository;
+using MidasAPI.Models.Views;
 
 namespace MidasAPI.Controllers
 {
@@ -19,8 +20,8 @@ namespace MidasAPI.Controllers
 
 
         [HttpGet]
-        [ActionName(nameof(GetProductosAsync))]
-        public IEnumerable<ProductoInformation> GetProductosAsync()
+        [ActionName(nameof(GetProductos))]
+        public IEnumerable<ProductoInformation> GetProductos()
         {
             return _productoRepository.GetProductos();
         }
@@ -41,7 +42,7 @@ namespace MidasAPI.Controllers
 
 
         [HttpPost]
-        [Route("Guardar")]
+        [Route("Nuevo")]
         [ActionName(nameof(CreateProductoAsync))]
         public async Task<ActionResult<Producto>> CreateProductoAsync(ProductoDto objeto)
         {
@@ -57,7 +58,8 @@ namespace MidasAPI.Controllers
         }
 
 
-        [HttpPut("EditarPrecio")]
+        [HttpPut]
+        [Route("EditaPrecio/{id}")]
         [ActionName(nameof(UpdatePrecio))]
         public ActionResult<Producto> UpdatePrecio(int id, double precio)
         {
@@ -79,7 +81,8 @@ namespace MidasAPI.Controllers
         }
 
 
-        [HttpPut("EditarStock")]
+        [HttpPut]
+        [Route("EditaStock/{id}")]
         [ActionName(nameof(UpdateStock))]
         public ActionResult<Producto> UpdateStock(int id, int stock)
         {

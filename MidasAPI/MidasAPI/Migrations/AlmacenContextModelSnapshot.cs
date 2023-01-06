@@ -22,6 +22,61 @@ namespace MidasAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MidasAPI.Models.Data.Detalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FacturaId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Precio")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FacturaId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("Detalles");
+                });
+
+            modelBuilder.Entity("MidasAPI.Models.Data.Factura", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Baja")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaBaja")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Facturas");
+                });
+
             modelBuilder.Entity("MidasAPI.Models.Data.Producto", b =>
                 {
                     b.Property<int>("Id")
@@ -67,31 +122,23 @@ namespace MidasAPI.Migrations
                     b.ToTable("TipoProductos");
                 });
 
-            modelBuilder.Entity("MidasAPI.Models.Data.Ventas", b =>
+            modelBuilder.Entity("MidasAPI.Models.Data.Detalle", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.HasOne("MidasAPI.Models.Data.Factura", "oFactura")
+                        .WithMany("Detalles")
+                        .HasForeignKey("FacturaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.HasOne("MidasAPI.Models.Data.Producto", "oProducto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("ProductoId")
-                        .HasColumnType("int");
+                    b.Navigation("oFactura");
 
-                    b.Property<int>("cantidad")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("fecha")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("importe")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductoId");
-
-                    b.ToTable("Ventas");
+                    b.Navigation("oProducto");
                 });
 
             modelBuilder.Entity("MidasAPI.Models.Data.Producto", b =>
@@ -105,15 +152,9 @@ namespace MidasAPI.Migrations
                     b.Navigation("oTipoProducto");
                 });
 
-            modelBuilder.Entity("MidasAPI.Models.Data.Ventas", b =>
+            modelBuilder.Entity("MidasAPI.Models.Data.Factura", b =>
                 {
-                    b.HasOne("MidasAPI.Models.Data.Producto", "oProducto")
-                        .WithMany()
-                        .HasForeignKey("ProductoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("oProducto");
+                    b.Navigation("Detalles");
                 });
 #pragma warning restore 612, 618
         }

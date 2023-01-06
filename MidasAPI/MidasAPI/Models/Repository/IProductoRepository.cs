@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MidasAPI.Models.Data;
 using MidasAPI.Models.DataTransfer;
+using MidasAPI.Models.Views;
 
 namespace MidasAPI.Models.Repository
 {

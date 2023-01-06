@@ -17,6 +17,7 @@ namespace MidasAPI.Models.Data
         public int TipoProductoId { get; set; }
 
         [ForeignKey("TipoProductoId")]
+        [JsonIgnore]
         public virtual TipoProducto oTipoProducto { get; set; }
 
 

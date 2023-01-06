@@ -11,6 +11,7 @@ namespace MidasAPI.Models.Data
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<TipoProducto> TipoProductos { get; set; }
-        public DbSet<Venta> Ventas { get; set; }
+        public DbSet<Detalle> Detalles { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
     }
 }

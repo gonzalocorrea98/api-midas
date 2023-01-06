@@ -19,6 +19,12 @@ namespace MidasAPI.Models.Repository
             return _context.TipoProductos.Find(id);
         }
 
+        public int GetStockTotal(int id)
+        {
+            var result = _context.Productos.Where(x => x.TipoProductoId == id).Sum(s => s.Stock);
+            return result;
+        }
+
         public async Task<TipoProducto> CreateTipoProductoAsync(TipoProducto tipo)
         {
             await _context.Set<TipoProducto>().AddAsync(tipo);

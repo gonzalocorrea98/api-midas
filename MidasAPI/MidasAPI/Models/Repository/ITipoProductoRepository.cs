@@ -4,14 +4,17 @@ namespace MidasAPI.Models.Repository
 {
     public interface ITipoProductoRepository
     {
-        Task<TipoProducto> CreateTipoProductoAsync(TipoProducto tipo);
-
-        Task<bool> DeleteTipoProductoAsync(TipoProducto tipo);
+        IEnumerable<TipoProducto> GetTipoProductos();
 
         TipoProducto GetTipoProductoById(int id);
 
-        IEnumerable<TipoProducto> GetTipoProductos();
+        int GetStockTotal(int id);
+
+        Task<TipoProducto> CreateTipoProductoAsync(TipoProducto tipo);
 
         Task<bool> UpdateTipoProductoAsync(TipoProducto tipo);
+
+        Task<bool> DeleteTipoProductoAsync(TipoProducto tipo);
+
     }
 }

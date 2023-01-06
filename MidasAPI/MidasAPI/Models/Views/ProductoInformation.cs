@@ -1,4 +1,4 @@
-﻿namespace MidasAPI.Models.DataTransfer
+﻿namespace MidasAPI.Models.Views
 {
     public class ProductoInformation
     {
