@@ -1,4 +1,4 @@
-# API Rest Midas
+# API REST Midas
 Api Venta y Stock de Productos con Net Core 6
 
 ## Ventas y stock.
